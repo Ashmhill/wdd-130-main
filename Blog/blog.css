@@ -38,17 +38,49 @@ main {
     grid-template-columns: 3fr 1fr;
     gap: 20px;
     padding: 20px;
+    max-width: 1000px;  /* Adjusted to match navbar width */
+    margin: 0 auto;     /* Center align the main content */
 }
 
 article {
     background-color: #EFC69B;
     padding: 20px;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;  /* Added space between articles */
+}
+
+article h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+article p {
+    margin: 0.5em 0;
+}
+
+article p time {
+    font-size: 1.2em;  /* Increased font size for date */
+}
+
+article .details {
+    text-align: right;   /* Right-align the details list */
+    line-height: 1.4;    /* Slightly reduced line spacing */
+    border-right: 2px solid #473144;  /* Added right border */
+    padding-right: 20px; /* Spacing on right */
+    margin-right: 20px;  /* Spacing on left */
 }
 
 article img {
     max-width: 100%;
     height: auto;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;  /* Center the image */
 }
 
 aside {

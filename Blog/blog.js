@@ -1,53 +1,58 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Example book data
-    const books = [
+    const articles = [
         {
-            title: 'Book Title 1',
-            author: 'Author Name 1',
-            publishedDate: '2023-05-01',
-            coverImage: 'book-cover1.jpg',
-            description: 'A brief description of the book 1...'
+            id: 1,
+            title: "Septimus Heap Book One: Magyk",
+            date: "July 5, 2022",
+            description: "If you enjoy stories about seventh sons of seventh sons and magyk this is the book for you.",
+            imgSrc: "https://upload.wikimedia.org/wikipedia/en/5/5f/Magkycover2.jpg",
+            imgAlt: "Book cover for Septimus Heap 1",
+            ages: "10-14",
+            genre: "Fantasy",
+            stars: "****"
         },
         {
-            title: 'Book Title 2',
-            author: 'Author Name 2',
-            publishedDate: '2023-06-01',
-            coverImage: 'book-cover2.jpg',
-            description: 'A brief description of the book 2...'
+            id: 2,
+            title: "Magnus Chase Book One: Sword of Summer",
+            date: "December 12, 2021",
+            description: "The anticipated new novel by Rick Riordan. After Greek mythology (Percy Jackson), Greek/Roman (Heroes of Olympus), and Egyptian (Kane Chronicles), Rick decides to try his hand with Norse Mythology, and the end result is good.",
+            imgSrc: "https://books.google.com/books/content/images/frontcover/xWuyBAAAQBAJ?fife=w300",
+            imgAlt: "Book cover for Magnus Chase 1",
+            ages: "12-16",
+            genre: "Fantasy",
+            stars: "⭐⭐⭐⭐"
+        },
+        {
+            id: 3,
+            title: "Belgariad Book One: Pawn of Prophecy",
+            date: "Feb 12, 2022",
+            description: "A fierce dispute among the Gods and the theft of a powerful Orb leaves the World divided into five kingdoms. Young Garion, with his 'Aunt Pol' and an elderly man calling himself Wolf --a father and daughter granted near-immortality by one of the Gods -- set out on a complex mission.",
+            imgSrc: "https://images-na.ssl-images-amazon.com/images/I/41ZxXA+nInL.jpg",
+            imgAlt: "Book cover for Pawn of Prophecy",
+            ages: "12-16",
+            genre: "Fantasy",
+            stars: "⭐⭐⭐⭐⭐"
         }
     ];
 
-    // Function to render books
-    function renderBooks() {
-        const mainContent = document.querySelector('main section');
-        books.forEach(book => {
-            const article = document.createElement('article');
+    const mainContent = document.querySelector('main section');
 
-            const h2 = document.createElement('h2');
-            h2.textContent = book.title;
-            article.appendChild(h2);
-
-            const author = document.createElement('p');
-            author.innerHTML = `Author: <span class="author">${book.author}</span>`;
-            article.appendChild(author);
-
-            const publishedDate = document.createElement('p');
-            publishedDate.innerHTML = `Published: <time datetime="${book.publishedDate}">${new Date(book.publishedDate).toDateString()}</time>`;
-            article.appendChild(publishedDate);
-
-            const img = document.createElement('img');
-            img.src = book.coverImage;
-            img.alt = `Cover of ${book.title}`;
-            article.appendChild(img);
-
-            const description = document.createElement('p');
-            description.className = 'description';
-            description.textContent = book.description;
-            article.appendChild(description);
-
-            mainContent.appendChild(article);
-        });
-    }
-
-    renderBooks();
+    articles.forEach(article => {
+        const articleElement = document.createElement('article');
+        articleElement.innerHTML = `
+            <div class="details">
+                <p>Ages: ${article.ages}</p>
+                <p>Genre: ${article.genre}</p>
+                <p>Rating: ${article.stars}</p>
+                <p>Published: <time datetime="${article.date}">${new Date(article.date).toDateString()}</time></p>
+            </div>
+            <div>
+                <h2>${article.title}</h2>
+                <img src="${article.imgSrc}" alt="${article.imgAlt}">
+                <p class="description">${article.description}</p>
+            </div>
+        `;
+        mainContent.appendChild(articleElement);
+    });
 });
+
