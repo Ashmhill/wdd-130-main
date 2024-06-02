@@ -41,10 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const articleElement = document.createElement('article');
         articleElement.innerHTML = `
             <div class="details">
-                <p>Ages: ${article.ages}</p>
-                <p>Genre: ${article.genre}</p>
-                <p>Rating: ${article.stars}</p>
-                <p>Published: <time datetime="${article.date}">${new Date(article.date).toDateString()}</time></p>
+                <p><time datetime="${article.date}">${new Date(article.date).toDateString()}</time></p>
+                <p>${article.ages}</p>
+                <p>${article.genre}</p>
+                <p>${article.stars}</p>
             </div>
             <div>
                 <h2>${article.title}</h2>
@@ -55,4 +55,3 @@ document.addEventListener('DOMContentLoaded', function() {
         mainContent.appendChild(articleElement);
     });
 });
-
